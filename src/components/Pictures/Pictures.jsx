@@ -15,7 +15,7 @@ const Pictures = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [isLoadMore, setIsLoadMore] = useState(false);
+  const [setIsLoadMore] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [largeImage, setLargeImage] = useState(null);
 
@@ -54,7 +54,7 @@ const Pictures = () => {
 
       fetchPictures();
     }
-  }, [search, page]);
+  }, [search, page, setIsLoadMore]);
 
   const showPicture = useCallback(largeImageURL => {
     setLargeImage(largeImageURL);
