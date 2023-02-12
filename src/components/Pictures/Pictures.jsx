@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 import css from './Pictures.module.css';
 import Searchbar from './Searchbar/Searchbar';
@@ -19,11 +19,11 @@ const Pictures = () => {
   const [showModal, setShowModal] = useState(false);
   const [largeImage, setLargeImage] = useState(null);
 
-  const onSearchPictures = useCallback(search => {
+  const onSearchPictures = search => {
     setSearch(search);
     setPage(1);
     setPictures([]);
-  }, []);
+  };
 
   useEffect(() => {
     const checkData = ({ totalHits, hits }) => {
@@ -56,19 +56,19 @@ const Pictures = () => {
     }
   }, [search, page, setIsLoadMore]);
 
-  const showPicture = useCallback(largeImageURL => {
+  const showPicture = largeImageURL => {
     setLargeImage(largeImageURL);
     setShowModal(true);
-  }, []);
+  };
 
-  const loadMore = useCallback(() => {
+  const loadMore = () => {
     setPage(prevPage => prevPage + 1);
-  }, []);
+  };
 
-  const closeModal = useCallback(() => {
+  const closeModal = () => {
     setShowModal(false);
     setLargeImage(null);
-  }, []);
+  };
 
   return (
     <div className={css.App}>

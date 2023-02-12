@@ -19,7 +19,7 @@ const Modal = ({ close, children }) => {
   useEffect(() => {
     document.addEventListener('keydown', closeModalWindow);
     return () => document.removeEventListener('keydown', closeModalWindow);
-  }, [close, closeModalWindow]);
+  }, [closeModalWindow]);
 
   return createPortal(
     <div className={css.Overlay} onClick={closeModalWindow}>
