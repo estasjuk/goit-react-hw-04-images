@@ -15,7 +15,7 @@ const Pictures = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [setIsLoadMore] = useState(false);
+  const [isLoadMore, setIsLoadMore] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [largeImage, setLargeImage] = useState(null);
 
@@ -78,7 +78,7 @@ const Pictures = () => {
       )}
       {loading && <Loader />}
       {error && <p>Something goes wrong...</p>}
-      {Boolean(pictures.length) && <Button onClick={loadMore} />}
+      {isLoadMore && <Button onClick={loadMore} />}
       {showModal && (
         <Modal close={closeModal}>
           <LargeImage {...largeImage} />
